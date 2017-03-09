@@ -3,16 +3,6 @@
 import UIKit
 import PlaygroundSupport
 
-/*
- 
- let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
- backgroundImage.image = UIImage(named: "RubberMat")
- backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
- self.view.insertSubview(backgroundImage, at: 0)
- 
- */
-
-
 var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1400, height: 1400))
 mainSpace.image = UIImage(named: "spaceBackground.jpg")
 mainSpace.contentMode =  UIViewContentMode.scaleAspectFill
@@ -70,14 +60,24 @@ pluto.contentMode = UIViewContentMode.scaleAspectFill
 pluto.center.x = sun.center.x
 
 mainSpace.addSubview(sun)
+sun.rotation(view: sun)
 mainSpace.addSubview(mercury)
+mercury.orbit(view: mercury, center: mainSpace, radius: 130.0, time: 1.0)
 mainSpace.addSubview(venus)
+venus.orbit(view: venus, center: mainSpace, radius: 180.0, time: 3.0)
 mainSpace.addSubview(earth)
+earth.orbit(view: earth, center: mainSpace, radius: 230, time: 5.0)
 mainSpace.addSubview(mars)
+mars.orbit(view: mars, center: mainSpace, radius: 280, time: 7.0)
 mainSpace.addSubview(jupiter)
+jupiter.orbit(view: jupiter, center: mainSpace, radius: 390, time: 9.00)
 mainSpace.addSubview(saturn)
+saturn.orbit(view: saturn, center: mainSpace, radius: 480, time: 11.0)
 mainSpace.addSubview(uranus)
+uranus.orbit(view: uranus, center: mainSpace, radius: 540, time: 13.0)
 mainSpace.addSubview(neptune)
+neptune.orbit(view: neptune, center: mainSpace, radius: 600, time: 15.0)
 mainSpace.addSubview(pluto)
+pluto.orbit(view: pluto, center: mainSpace, radius: 650, time: 17.0)
 
 PlaygroundPage.current.liveView = mainSpace
