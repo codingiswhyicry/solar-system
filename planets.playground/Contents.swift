@@ -13,65 +13,61 @@ import PlaygroundSupport
  */
 
 
-var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1000, height: 1000))
+var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1400, height: 1400))
 mainSpace.image = UIImage(named: "spaceBackground.jpg")
 mainSpace.contentMode =  UIViewContentMode.scaleAspectFill
 
-var sun = UIImageView(frame: CGRect(x: -300, y: mainSpace.frame.size.width / 2, width: 400, height: 400))
+var sun = UIImageView(frame: CGRect(x: mainSpace.frame.height / 2, y: mainSpace.frame.size.width / 2, width: 150, height: 150))
 sun.image = UIImage(named: "editedsun.gif")
 sun.contentMode =  UIViewContentMode.scaleAspectFill
 sun.center.y = mainSpace.frame.height / 2
+sun.center.x = mainSpace.frame.width / 2
 
-var mercury = UIImageView(frame: CGRect(x: 250, y: mainSpace.frame.size.width / 2 , width: 5, height: 5))
+var mercury = UIImageView(frame: CGRect(x: mainSpace.frame.height / 2, y: mainSpace.frame.size.width / 2 - 130, width: 5, height: 5))
 mercury.image = UIImage(named: "mercury.gif")
 mercury.contentMode =  UIViewContentMode.scaleAspectFill
-mercury.center.y = sun.center.y
+mercury.center.x = sun.center.x
 
-var venus = UIImageView(frame: CGRect(x: 280, y: mainSpace.frame.size.width / 2, width: 9, height: 9))
+var venus = UIImageView(frame: CGRect(x: mainSpace.frame.height / 2, y: mainSpace.frame.size.width / 2 - 180, width: 9, height: 9))
 venus.image = UIImage(named: "venus.gif")
 venus.contentMode = UIViewContentMode.scaleAspectFill
-venus.center.y = sun.center.y
+venus.center.x = sun.center.x
 
-var earth = UIImageView(frame: CGRect(x: 310,y: mainSpace.frame.size.width / 2, width: 10, height: 10))
+var earth = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2,y: mainSpace.frame.size.width / 2 - 230, width: 11, height: 11))
 earth.image = UIImage(named: "earth.gif")
 earth.contentMode = UIViewContentMode.scaleAspectFill
-earth.center.y = sun.center.y
+earth.center.x = venus.center.x
 
-var mars = UIImageView(frame: CGRect(x: 350 , y: mainSpace.frame.size.width / 2, width: 7, height: 7))
+var mars = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 280, width: 9, height: 9))
 mars.image = UIImage(named: "mars.gif")
 mars.contentMode = UIViewContentMode.scaleAspectFill
-mars.center.y = sun.center.y
+mars.center.x = sun.center.x
 
-var jupiter = UIImageView(frame: CGRect(x: 400, y: mainSpace.frame.size.width / 2, width: 150, height: 150))
-jupiter.image = UIImage(named: "jupiter.gif")
+var jupiter = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 390, width: 80, height: 80))
+jupiter.image = UIImage(named: "finalJupDraft.gif")
 jupiter.contentMode = UIViewContentMode.scaleAspectFill
-jupiter.center.y = sun.center.y
+jupiter.center.x = sun.center.x
 
-var saturn =  UIImageView(frame: CGRect(x: 600, y: mainSpace.frame.size.width / 2, width: 100, height: 100))
-saturn.image = UIImage(named: "saturn.gif")
+var saturn =  UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 480, width: 70, height: 70))
+saturn.image = UIImage(named: "saturnDraftTop.png")
 saturn.contentMode = UIViewContentMode.scaleAspectFill
-saturn.center.y = sun.center.y
+saturn.center.x = sun.center.x
 
-var saturn_rings = UIView(frame: CGRect(x: 600, y: mainSpace.frame.size.width / 2, width: 160, height: 1))
-saturn_rings.backgroundColor = UIColor(red:0.76, green:0.70, blue:0.69, alpha:1.0)
-saturn_rings.layer.cornerRadius = 7
-saturn_rings.center.y = saturn.center.y
-saturn_rings.center.x = saturn.center.x
 
-var uranus =  UIImageView(frame: CGRect(x: 770, y: mainSpace.frame.size.width / 2, width: 30, height: 30))
+var uranus =  UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 540, width: 30, height: 30))
 uranus.image = UIImage(named: "uranus.gif")
 uranus.contentMode = UIViewContentMode.scaleAspectFill
-uranus.center.y = sun.center.y
+uranus.center.x = sun.center.x
 
-var neptune =  UIImageView(frame: CGRect(x: 860, y: mainSpace.frame.size.width / 2, width: 25, height: 25))
+var neptune =  UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 600, width: 25, height: 25))
 neptune.image = UIImage(named: "neptune.gif")
 neptune.contentMode = UIViewContentMode.scaleAspectFill
-neptune.center.y = sun.center.y
+neptune.center.x = sun.center.x
 
-var pluto =  UIImageView(frame: CGRect(x: 930, y: mainSpace.frame.size.width / 2, width: 4, height: 4))
+var pluto =  UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 650, width: 4, height: 4))
 pluto.image = UIImage(named: "pluto.gif")
 pluto.contentMode = UIViewContentMode.scaleAspectFill
-pluto.center.y = sun.center.y
+pluto.center.x = sun.center.x
 
 mainSpace.addSubview(sun)
 mainSpace.addSubview(mercury)
@@ -80,7 +76,6 @@ mainSpace.addSubview(earth)
 mainSpace.addSubview(mars)
 mainSpace.addSubview(jupiter)
 mainSpace.addSubview(saturn)
-mainSpace.addSubview(saturn_rings)
 mainSpace.addSubview(uranus)
 mainSpace.addSubview(neptune)
 mainSpace.addSubview(pluto)
