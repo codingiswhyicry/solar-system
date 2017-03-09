@@ -20,7 +20,7 @@ extension UIImageView {
     open func orbit(view: UIImageView, center: UIView, radius: Float, time: Float) {
         let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
         
-        var orbit = CAKeyframeAnimation(keyPath: "position")
+        let orbit = CAKeyframeAnimation(keyPath: "position")
         orbit.path = myPath
         orbit.rotationMode = kCAAnimationRotateAuto
         orbit.repeatCount = Float.infinity
