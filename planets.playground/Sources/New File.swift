@@ -5,7 +5,7 @@ extension UIImageView {
 
     open func rotation(view: UIImageView) {
         let spin_animate = CABasicAnimation(keyPath: "transform.rotation")
-        spin_animate.duration = 5
+        spin_animate.duration = 1
         spin_animate.repeatCount = Float.infinity
         spin_animate.fromValue = 0.0
         spin_animate.toValue = Float(M_PI * 2.0)
