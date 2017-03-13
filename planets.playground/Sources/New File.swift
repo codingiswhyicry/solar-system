@@ -34,4 +34,14 @@ extension UIImageView {
         view.layer.removeAnimation(forKey: "orbit")
     }
     
+    open func create_circle(view: UIView, radius: Float) {
+    
+        let myPath = UIBezierPath(arcCenter: view.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = myPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor(red:0.73, green:0.74, blue:0.76, alpha:1.0).cgColor
+        shapeLayer.lineWidth = 0.5
+        view.layer.insertSublayer(shapeLayer, at: 0)
+    }
 }
