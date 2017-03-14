@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 
+
 extension UIImageView {
 
     open func rotation(view: UIImageView) {
@@ -43,5 +44,89 @@ extension UIImageView {
         shapeLayer.strokeColor = UIColor.white.cgColor //UIColor(red:0.73, green:0.74, blue:0.76, alpha:1.0).cgColor
         shapeLayer.lineWidth = 0.2
         view.layer.insertSublayer(shapeLayer, at: 0) 
+    }
+    
+    open func animate_circle(view: UIView, radius: Float){
+    
+        var expandAnimation: CABasicAnimation = CABasicAnimation(keyPath: "path")
+        expandAnimation.fromValue = ovalPathSmall.CGPath
+        expandAnimation.toValue = ovalPathLarge.CGPath
+        expandAnimation.duration = animationDuration
+        expandAnimation.fillMode = kCAFillModeForwards
+        expandAnimation.isRemovedOnCompletion = false
+        view.layer.add(expandAnimation, forKey: "expanding")
+    }
+    
+    open func animate_planets(sun: UIImageView, mercury: UIImageView, venus: UIImageView, earth: UIImageView, mars: UIImageView, jupiter: UIImageView, saturn: UIImageView, uranus: UIImageView, neptune: UIImageView, pluto: UIImageView) {
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            
+            sun.alpha = 1.0
+            
+        }, completion: {finished in
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                
+                mercury.alpha = 1.0
+                
+            }, completion: {finished in
+                
+                UIView.animate(withDuration: 1.0, animations: {
+                    
+                    venus.alpha = 1.0
+                    
+                }, completion: {finished in
+                    
+                    UIView.animate(withDuration: 1.0, animations: {
+                        
+                        earth.alpha = 1.0
+                        
+                    }, completion: {finished in
+                        
+                        UIView.animate(withDuration: 1.0, animations: {
+                            
+                            mars.alpha = 1.0
+                            
+                        }, completion: {finished in
+                            
+                            UIView.animate(withDuration: 1.0, animations: {
+                                
+                                jupiter.alpha = 1.0
+                                
+                            }, completion: {finished in
+                                
+                                UIView.animate(withDuration: 1.0, animations: {
+                                    
+                                    saturn.alpha = 1.0
+                                    
+                                }, completion: {finished in
+                                    
+                                    UIView.animate(withDuration: 1.0, animations: {
+                                        
+                                        uranus.alpha = 1.0
+                                        
+                                    }, completion: {finished in
+                                        
+                                        UIView.animate(withDuration: 1.0, animations: {
+                                            
+                                            neptune.alpha = 1.0
+                                            
+                                        }, completion: {finished in
+                                            
+                                            UIView.animate(withDuration: 1.0, animations: {
+                                                
+                                                pluto.alpha = 1.0
+                                                
+                                            }, completion: nil) // end of pluto animation
+                                        }) // end of neptune animation
+                                    }) // end of uranus animation
+                                }) // end of saturn animation
+                            }) // end of jupiter animation
+                        }) // end of mars animation
+                    }) // end of earth animation
+                }) //end of venus animation
+            }) // end of mercury animation
+        }) // end of sun animation
+        
     }
 }

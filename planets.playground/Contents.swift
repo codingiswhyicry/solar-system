@@ -54,7 +54,7 @@ neptune.image = UIImage(named: "neptune.gif")
 neptune.contentMode = UIViewContentMode.scaleAspectFill
 neptune.center.x = sun.center.x
 
-var pluto =  UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 325, width: 2, height: 2))
+var pluto =  UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.width / 2 - 325, width: 5, height: 5))
 pluto.image = UIImage(named: "pluto.gif")
 pluto.contentMode = UIViewContentMode.scaleAspectFill
 pluto.center.x = sun.center.x
@@ -110,73 +110,6 @@ pluto.alpha = 0.0
 pluto.create_circle(view: mainSpace, radius: 325)
 pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5)//20.0)
 
-UIView.animate(withDuration: 1.0, animations: {
-    
-    sun.alpha = 1.0
-    
-    }, completion: {finished in
-        
-        UIView.animate(withDuration: 1.0, animations: {
-            
-            mercury.alpha = 1.0
-            
-        }, completion: {finished in
-            
-            UIView.animate(withDuration: 1.0, animations: {
-                
-                venus.alpha = 1.0
-                
-            }, completion: {finished in
-                
-                UIView.animate(withDuration: 1.0, animations: {
-                    
-                    earth.alpha = 1.0
-                    
-                }, completion: {finished in
-                    
-                    UIView.animate(withDuration: 1.0, animations: {
-                        
-                        mars.alpha = 1.0
-                        
-                    }, completion: {finished in
-                        
-                        UIView.animate(withDuration: 1.0, animations: {
-                            
-                            jupiter.alpha = 1.0
-                            
-                        }, completion: {finished in
-                            
-                            UIView.animate(withDuration: 1.0, animations: {
-                                
-                                saturn.alpha = 1.0
-                                
-                            }, completion: {finished in
-                                
-                                UIView.animate(withDuration: 1.0, animations: {
-                                    
-                                    uranus.alpha = 1.0
-                                    
-                                }, completion: {finished in
-                                    
-                                    UIView.animate(withDuration: 1.0, animations: {
-                                        
-                                       neptune.alpha = 1.0
-                                        
-                                    }, completion: {finished in
-                                        
-                                        UIView.animate(withDuration: 1.0, animations: {
-                                            
-                                            pluto.alpha = 1.0
-                                            
-                                        }, completion: nil) // end of pluto animation
-                                }) // end of neptune animation
-                            }) // end of uranus animation
-                        }) // end of saturn animation
-                    }) // end of jupiter animation 
-                }) // end of mars animation
-            }) // end of earth animation
-        }) //end of venus animation
-    }) // end of mercury animation
-}) // end of sun animation
+mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
 
 PlaygroundPage.current.liveView = mainSpace
