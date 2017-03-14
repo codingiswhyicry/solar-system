@@ -1,6 +1,9 @@
 import Foundation
 import UIKit
 
+extension CAShapeLayer {
+
+}
 
 extension UIImageView {
 
@@ -35,26 +38,27 @@ extension UIImageView {
         view.layer.removeAnimation(forKey: "orbit")
     }
     
-    open func create_circle(view: UIView, radius: Float) {
+    open func create_circle(view: UIView, radius: Float, time: Double, delay: Double) {
     
         let myPath = UIBezierPath(arcCenter: view.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
+        
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = myPath
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = UIColor.white.cgColor //UIColor(red:0.73, green:0.74, blue:0.76, alpha:1.0).cgColor
         shapeLayer.lineWidth = 0.2
-        view.layer.insertSublayer(shapeLayer, at: 0) 
-    }
-    
-    open func animate_circle(view: UIView, radius: Float){
-    
-        var expandAnimation: CABasicAnimation = CABasicAnimation(keyPath: "path")
-        expandAnimation.fromValue = ovalPathSmall.CGPath
-        expandAnimation.toValue = ovalPathLarge.CGPath
-        expandAnimation.duration = animationDuration
-        expandAnimation.fillMode = kCAFillModeForwards
-        expandAnimation.isRemovedOnCompletion = false
-        view.layer.add(expandAnimation, forKey: "expanding")
+        shapeLayer.opacity = 0.0
+        view.layer.insertSublayer(shapeLayer, at: 0)
+        
+        let animation : CABasicAnimation = CABasicAnimation(keyPath: "opacity");
+        animation.beginTime = CACurrentMediaTime() + delay
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.duration = CFTimeInterval(time)
+        animation.isRemovedOnCompletion = false
+        shapeLayer.add(animation, forKey: nil)
+        
     }
     
     open func animate_planets(sun: UIImageView, mercury: UIImageView, venus: UIImageView, earth: UIImageView, mars: UIImageView, jupiter: UIImageView, saturn: UIImageView, uranus: UIImageView, neptune: UIImageView, pluto: UIImageView) {

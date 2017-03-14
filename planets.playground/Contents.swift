@@ -66,49 +66,58 @@ sun.rotation(view: sun)
 
 mainSpace.addSubview(mercury)
 mercury.alpha = 0.0
-mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5)
-mercury.create_circle(view: mainSpace, radius: 65.0)
+//mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5)
 
 mainSpace.addSubview(venus)
 venus.alpha = 0.0
-venus.create_circle(view: mainSpace, radius: 90.0)
-venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0)
+//venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0)
 
 mainSpace.addSubview(earth)
 earth.alpha = 0.0
-earth.create_circle(view: mainSpace, radius: 115)
-earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5/*4.0*/)
+//earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5/*4.0*/)
 earth.rotation(view: earth)
 
 mainSpace.addSubview(mars)
 mars.alpha = 0.0
-mars.create_circle(view: mainSpace, radius: 140)
-mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0/*6.0*/)
+//mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0/*6.0*/)
 
 mainSpace.addSubview(jupiter)
 jupiter.alpha = 0.0
-jupiter.create_circle(view: mainSpace, radius: 195)
-jupiter.orbit(view: jupiter, center: mainSpace, radius: 195, time: 2.5)//8.00)
+//jupiter.orbit(view: jupiter, center: mainSpace, radius: 195, time: 2.5)//8.00)
 
 mainSpace.addSubview(saturn)
 saturn.alpha = 0.0
-saturn.create_circle(view: mainSpace, radius: 240)
-saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0)//10.0)
+//saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0)//10.0)
 
 mainSpace.addSubview(uranus)
 uranus.alpha = 0.0
-uranus.create_circle(view: mainSpace, radius: 270)
-uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5)//13.0)
+//uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5)//13.0)
 
 mainSpace.addSubview(neptune)
 neptune.alpha = 0.0
-neptune.create_circle(view: mainSpace, radius: 300)
-neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0)//14.0)
+//neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0)//14.0)
 
 mainSpace.addSubview(pluto)
 pluto.alpha = 0.0
-pluto.create_circle(view: mainSpace, radius: 325)
-pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5)//20.0)
+//pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5)//20.0)
+
+mainSpace.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 3.0)
+
+mainSpace.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 3.2)
+
+mainSpace.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 3.4)
+
+mainSpace.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 3.6)
+
+mainSpace.create_circle(view: mainSpace, radius: 195.0, time: 0.5, delay: 3.8)
+
+mainSpace.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 4.0)
+
+mainSpace.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 4.2)
+
+mainSpace.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 4.4)
+
+mainSpace.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 4.6)
 
 mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
 
