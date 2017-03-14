@@ -3,7 +3,7 @@
 import UIKit
 import PlaygroundSupport
 
-var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1000, height: 700))
+var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1000, height: 900))
 mainSpace.image = UIImage(named: "spaceBackground.jpg")
 mainSpace.contentMode =  UIViewContentMode.scaleAspectFill
 
@@ -59,35 +59,124 @@ pluto.image = UIImage(named: "pluto.gif")
 pluto.contentMode = UIViewContentMode.scaleAspectFill
 pluto.center.x = sun.center.x
 
+
 mainSpace.addSubview(sun)
+sun.alpha = 0.0
 sun.rotation(view: sun)
+
 mainSpace.addSubview(mercury)
-mercury.create_circle(view: mainSpace, radius: 65.0)
+mercury.alpha = 0.0
 mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5)
+mercury.create_circle(view: mainSpace, radius: 65.0)
+
 mainSpace.addSubview(venus)
+venus.alpha = 0.0
 venus.create_circle(view: mainSpace, radius: 90.0)
 venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0)
+
 mainSpace.addSubview(earth)
+earth.alpha = 0.0
 earth.create_circle(view: mainSpace, radius: 115)
 earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5/*4.0*/)
 earth.rotation(view: earth)
+
 mainSpace.addSubview(mars)
+mars.alpha = 0.0
 mars.create_circle(view: mainSpace, radius: 140)
 mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0/*6.0*/)
+
 mainSpace.addSubview(jupiter)
+jupiter.alpha = 0.0
 jupiter.create_circle(view: mainSpace, radius: 195)
 jupiter.orbit(view: jupiter, center: mainSpace, radius: 195, time: 2.5)//8.00)
+
 mainSpace.addSubview(saturn)
+saturn.alpha = 0.0
 saturn.create_circle(view: mainSpace, radius: 240)
 saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0)//10.0)
+
 mainSpace.addSubview(uranus)
+uranus.alpha = 0.0
 uranus.create_circle(view: mainSpace, radius: 270)
 uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5)//13.0)
+
 mainSpace.addSubview(neptune)
+neptune.alpha = 0.0
 neptune.create_circle(view: mainSpace, radius: 300)
 neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0)//14.0)
+
 mainSpace.addSubview(pluto)
+pluto.alpha = 0.0
 pluto.create_circle(view: mainSpace, radius: 325)
 pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5)//20.0)
+
+UIView.animate(withDuration: 1.0, animations: {
+    
+    sun.alpha = 1.0
+    
+    }, completion: {finished in
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            
+            mercury.alpha = 1.0
+            
+        }, completion: {finished in
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                
+                venus.alpha = 1.0
+                
+            }, completion: {finished in
+                
+                UIView.animate(withDuration: 1.0, animations: {
+                    
+                    earth.alpha = 1.0
+                    
+                }, completion: {finished in
+                    
+                    UIView.animate(withDuration: 1.0, animations: {
+                        
+                        mars.alpha = 1.0
+                        
+                    }, completion: {finished in
+                        
+                        UIView.animate(withDuration: 1.0, animations: {
+                            
+                            jupiter.alpha = 1.0
+                            
+                        }, completion: {finished in
+                            
+                            UIView.animate(withDuration: 1.0, animations: {
+                                
+                                saturn.alpha = 1.0
+                                
+                            }, completion: {finished in
+                                
+                                UIView.animate(withDuration: 1.0, animations: {
+                                    
+                                    uranus.alpha = 1.0
+                                    
+                                }, completion: {finished in
+                                    
+                                    UIView.animate(withDuration: 1.0, animations: {
+                                        
+                                       neptune.alpha = 1.0
+                                        
+                                    }, completion: {finished in
+                                        
+                                        UIView.animate(withDuration: 1.0, animations: {
+                                            
+                                            pluto.alpha = 1.0
+                                            
+                                        }, completion: nil) // end of pluto animation
+                                }) // end of neptune animation
+                            }) // end of uranus animation
+                        }) // end of saturn animation
+                    }) // end of jupiter animation 
+                }) // end of mars animation
+            }) // end of earth animation
+        }) //end of venus animation
+    }) // end of mercury animation
+}) // end of sun animation
 
 PlaygroundPage.current.liveView = mainSpace

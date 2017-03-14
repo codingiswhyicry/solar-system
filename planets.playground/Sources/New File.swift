@@ -40,8 +40,8 @@ extension UIImageView {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = myPath
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor(red:0.73, green:0.74, blue:0.76, alpha:1.0).cgColor
-        shapeLayer.lineWidth = 0.5
-        view.layer.insertSublayer(shapeLayer, at: 0)
+        shapeLayer.strokeColor = UIColor.white.cgColor //UIColor(red:0.73, green:0.74, blue:0.76, alpha:1.0).cgColor
+        shapeLayer.lineWidth = 0.2
+        view.layer.insertSublayer(shapeLayer, at: 0) 
     }
 }
