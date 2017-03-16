@@ -21,16 +21,21 @@ extension UIImageView {
         view.layer.removeAnimation(forKey: "animationSpin")
     }
     
-    open func orbit(view: UIImageView, center: UIView, radius: Float, time: Float) {
+    open func orbit(view: UIImageView, center: UIView, radius: Float, time: Float, delay: Double) {
         let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
         
         let orbit = CAKeyframeAnimation(keyPath: "position")
         orbit.path = myPath
+        orbit.beginTime = CACurrentMediaTime() + delay
         orbit.rotationMode = kCAAnimationRotateAuto
+        orbit.fillMode = kCAFillModeForwards
         orbit.repeatCount = Float.infinity
         orbit.duration = CFTimeInterval(time)
-        
+        orbit.isRemovedOnCompletion = false
         view.layer.add(orbit, forKey: "orbit")
+        view.layoutIfNeeded()
+        view.layer.setNeedsLayout()
+        
     }
     
     open func stop_orbit(view: UIImageView) {
@@ -63,61 +68,61 @@ extension UIImageView {
     
     open func animate_planets(sun: UIImageView, mercury: UIImageView, venus: UIImageView, earth: UIImageView, mars: UIImageView, jupiter: UIImageView, saturn: UIImageView, uranus: UIImageView, neptune: UIImageView, pluto: UIImageView) {
         
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: 0.5, delay: 6.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
             sun.alpha = 1.0
             
         }, completion: {finished in
             
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 
                 mercury.alpha = 1.0
                 
             }, completion: {finished in
                 
-                UIView.animate(withDuration: 1.0, animations: {
+                UIView.animate(withDuration: 0.5, animations: {
                     
                     venus.alpha = 1.0
                     
                 }, completion: {finished in
                     
-                    UIView.animate(withDuration: 1.0, animations: {
+                    UIView.animate(withDuration: 0.5, animations: {
                         
                         earth.alpha = 1.0
                         
                     }, completion: {finished in
                         
-                        UIView.animate(withDuration: 1.0, animations: {
+                        UIView.animate(withDuration: 0.5, animations: {
                             
                             mars.alpha = 1.0
                             
                         }, completion: {finished in
                             
-                            UIView.animate(withDuration: 1.0, animations: {
+                            UIView.animate(withDuration: 0.5, animations: {
                                 
                                 jupiter.alpha = 1.0
                                 
                             }, completion: {finished in
                                 
-                                UIView.animate(withDuration: 1.0, animations: {
+                                UIView.animate(withDuration: 0.5, animations: {
                                     
                                     saturn.alpha = 1.0
                                     
                                 }, completion: {finished in
                                     
-                                    UIView.animate(withDuration: 1.0, animations: {
+                                    UIView.animate(withDuration: 0.5, animations: {
                                         
                                         uranus.alpha = 1.0
                                         
                                     }, completion: {finished in
                                         
-                                        UIView.animate(withDuration: 1.0, animations: {
+                                        UIView.animate(withDuration: 0.5, animations: {
                                             
                                             neptune.alpha = 1.0
                                             
                                         }, completion: {finished in
                                             
-                                            UIView.animate(withDuration: 1.0, animations: {
+                                            UIView.animate(withDuration: 0.5, animations: {
                                                 
                                                 pluto.alpha = 1.0
                                                 
@@ -130,7 +135,6 @@ extension UIImageView {
                     }) // end of earth animation
                 }) //end of venus animation
             }) // end of mercury animation
-        }) // end of sun animation
-        
-    }
+        })
+   }
 }
