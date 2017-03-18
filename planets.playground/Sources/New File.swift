@@ -68,7 +68,7 @@ extension UIImageView {
     
     open func animate_planets(sun: UIImageView, mercury: UIImageView, venus: UIImageView, earth: UIImageView, mars: UIImageView, jupiter: UIImageView, saturn: UIImageView, uranus: UIImageView, neptune: UIImageView, pluto: UIImageView) {
         
-        UIView.animate(withDuration: 0.5, delay: 6.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.5, delay: 1.5, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
             sun.alpha = 1.0
             
