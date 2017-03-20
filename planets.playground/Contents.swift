@@ -3,9 +3,13 @@
 import UIKit
 import PlaygroundSupport
 
+
+
 var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1200, height: 900))
 mainSpace.image = UIImage(named: "spaceBackground.jpg")
 mainSpace.contentMode =  UIViewContentMode.scaleAspectFill
+
+PlaygroundPage.current.liveView = mainSpace
 
 var sun = UIImageView(frame: CGRect(x: mainSpace.frame.height / 2, y: mainSpace.frame.size.width / 2, width: 75, height: 75))
 sun.image = UIImage(named: "editedsun.png")
@@ -65,6 +69,16 @@ alertMessage.contentMode = UIViewContentMode.scaleAspectFill
 alertMessage.center.x = mainSpace.center.x
 alertMessage.center.y = mainSpace.center.y
 
+var alertText = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.height / 2, width: 500, height: 500))
+alertText.image = UIImage(named: "starsetMessage.png")
+alertText.contentMode = UIViewContentMode.scaleAspectFill
+alertText.center.x = mainSpace.center.x
+alertText.center.y = mainSpace.center.y
+
+var clearButton = UIButton(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.height / 2 + 200, width: 300, height: 300))
+clearButton.setImage(UIImage(named: "clearMessage.png"), for: UIControlState.normal)
+clearButton.addTarget(clearButton, action: Selector("clearAction"), for: .touchUpInside)
+clearButton.center.x = mainSpace.center.x
 
 mainSpace.addSubview(sun)
 
@@ -115,40 +129,86 @@ pluto.layoutIfNeeded()
 mainSpace.addSubview(alertMessage)
 alertMessage.alpha = 0.0
 
-mainSpace.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 5.3)
+mainSpace.addSubview(alertText)
+alertText.alpha = 0.0
 
-mainSpace.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 5.8)
+mainSpace.addSubview(clearButton)
+clearButton.alpha = 0.0
 
-mainSpace.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 6.3)
+public func clearAction(sender: UIButton) {
+    
+    UIView.animate(withDuration: 5.0, animations: {
+        
+        alertText.alpha = 0.0
+        clearButton.alpha = 0.0
+        
+    }, completion: {finished in
+        
+        startLaunch()
+        
+    })
+    
+}
 
-mainSpace.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 6.8)
+public func startLaunch() {
+    
+    mainSpace.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 5.3)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 5.8)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 6.3)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 6.8)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 7.3)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 7.8)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 8.3)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 8.8)
+    
+    mainSpace.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 9.0)
+    
+    mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5, delay: 2.0)
+    venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0, delay: 2.0)
+    earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5, delay: 2.0)
+    mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0, delay: 2.0)
+    jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 2.5, delay: 2.0)
+    saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0, delay: 2.0)
+    uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5, delay: 2.0)
+    neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0, delay: 2.0)
+    pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5, delay: 2.0)
+    
+    mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
+    
+}
 
-mainSpace.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 7.3)
-
-mainSpace.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 7.8)
-
-mainSpace.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 8.3)
-
-mainSpace.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 8.8)
-
-mainSpace.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 9.0)
-
-mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5, delay: 2.0)
-venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0, delay: 2.0)
-earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5, delay: 2.0)
-mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0, delay: 2.0)
-jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 2.5, delay: 2.0)
-saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0, delay: 2.0)
-uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5, delay: 2.0)
-neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0, delay: 2.0)
-pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5, delay: 2.0)
-
-mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
-
-UIView.animate(withDuration: 1.0, delay: 10.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+UIView.animate(withDuration: 1.0, delay: 6.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
   
     alertMessage.alpha = 1.0
     
-        }, completion: nil)
+}, completion: { finished in
+    
+    UIView.animate(withDuration: 1.0, delay: 3.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+    
+        alertMessage.alpha = 0.0
+        
+            }, completion: {finished in
+        
+                    UIView.animate(withDuration: 1.0, delay: 2.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+                        
+                        alertText.alpha = 1.0
+                    
+                    }, completion: {finished in
+                    
+                        UIView.animate(withDuration: 1.0, delay: 2.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+                        
+                        clearButton.alpha = 1.0
+                            
+                        }, completion: nil)
+                })
+        }) //end of animation two
+    
+}) //end of animation one
 
-PlaygroundPage.current.liveView = mainSpace
