@@ -1,10 +1,6 @@
 import Foundation
 import UIKit
 
-extension CAShapeLayer {
-
-}
-
 extension UIImageView {
 
     open func rotation(view: UIImageView) {

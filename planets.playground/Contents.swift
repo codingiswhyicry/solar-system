@@ -59,6 +59,12 @@ pluto.image = UIImage(named: "pluto.gif")
 pluto.contentMode = UIViewContentMode.scaleAspectFill
 pluto.center.x = sun.center.x
 
+var alertMessage = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.height / 2, width: 400, height: 400))
+alertMessage.image = UIImage(named: "alertMessage.png")
+alertMessage.contentMode = UIViewContentMode.scaleAspectFill
+alertMessage.center.x = mainSpace.center.x
+alertMessage.center.y = mainSpace.center.y
+
 
 mainSpace.addSubview(sun)
 
@@ -106,6 +112,9 @@ mainSpace.addSubview(pluto)
 pluto.alpha = 0.0
 pluto.layoutIfNeeded()
 
+mainSpace.addSubview(alertMessage)
+alertMessage.alpha = 0.0
+
 mainSpace.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 5.3)
 
 mainSpace.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 5.8)
@@ -135,5 +144,11 @@ neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0, delay: 2
 pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5, delay: 2.0)
 
 mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
+
+UIView.animate(withDuration: 1.0, delay: 10.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+  
+    alertMessage.alpha = 1.0
+    
+        }, completion: nil)
 
 PlaygroundPage.current.liveView = mainSpace
