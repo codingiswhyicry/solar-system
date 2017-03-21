@@ -3,13 +3,18 @@
 import UIKit
 import PlaygroundSupport
 
-
-
 var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1200, height: 900))
 mainSpace.image = UIImage(named: "spaceBackground.jpg")
 mainSpace.contentMode =  UIViewContentMode.scaleAspectFill
 
-PlaygroundPage.current.liveView = mainSpace
+var mainScroll = UIScrollView(frame: CGRect(x: 0, y: 0, width: 1200, height: 900))
+mainScroll.maximumZoomScale = 5
+mainScroll.minimumZoomScale = 1
+mainScroll.bounces = false
+mainScroll.bouncesZoom = false
+mainScroll.isScrollEnabled = true
+mainScroll.isUserInteractionEnabled = true
+
 
 var sun = UIImageView(frame: CGRect(x: mainSpace.frame.height / 2, y: mainSpace.frame.size.width / 2, width: 75, height: 75))
 sun.image = UIImage(named: "editedsun.png")
@@ -63,24 +68,10 @@ pluto.image = UIImage(named: "pluto.gif")
 pluto.contentMode = UIViewContentMode.scaleAspectFill
 pluto.center.x = sun.center.x
 
-var alertMessage = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.height / 2, width: 400, height: 400))
-alertMessage.image = UIImage(named: "alertMessage.png")
-alertMessage.contentMode = UIViewContentMode.scaleAspectFill
-alertMessage.center.x = mainSpace.center.x
-alertMessage.center.y = mainSpace.center.y
+mainSpace.addSubview(mainScroll)
+mainSpace.isUserInteractionEnabled = true
 
-var alertText = UIImageView(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.height / 2, width: 500, height: 500))
-alertText.image = UIImage(named: "starsetMessage.png")
-alertText.contentMode = UIViewContentMode.scaleAspectFill
-alertText.center.x = mainSpace.center.x
-alertText.center.y = mainSpace.center.y
-
-var clearButton = UIButton(frame: CGRect(x: mainSpace.frame.height /  2, y: mainSpace.frame.size.height / 2 + 200, width: 300, height: 300))
-clearButton.setImage(UIImage(named: "clearMessage.png"), for: UIControlState.normal)
-clearButton.addTarget(clearButton, action: Selector("clearAction"), for: .touchUpInside)
-clearButton.center.x = mainSpace.center.x
-
-mainSpace.addSubview(sun)
+mainScroll.addSubview(sun)
 
 sun.alpha = 0.0
 sun.rotation(view: sun)
@@ -89,86 +80,62 @@ sun.layer.shadowOpacity = 0.5
 sun.layer.shadowOffset = CGSize.zero
 sun.layer.shadowRadius = 15
 
-mainSpace.addSubview(mercury)
+mainScroll.addSubview(mercury)
 mercury.alpha = 0.0
 mercury.layoutIfNeeded()
 
-mainSpace.addSubview(venus)
+mainScroll.addSubview(venus)
 venus.alpha = 0.0
 venus.layoutIfNeeded()
 
-mainSpace.addSubview(earth)
+mainScroll.addSubview(earth)
 earth.alpha = 0.0
 earth.rotation(view: earth)
 earth.layoutIfNeeded()
 
-mainSpace.addSubview(mars)
+mainScroll.addSubview(mars)
 mars.alpha = 0.0
 mars.layoutIfNeeded()
 
-mainSpace.addSubview(jupiter)
+mainScroll.addSubview(jupiter)
 jupiter.alpha = 0.0
 jupiter.layoutIfNeeded()
 
-mainSpace.addSubview(saturn)
+mainScroll.addSubview(saturn)
 saturn.alpha = 0.0
 saturn.layoutIfNeeded()
 
-mainSpace.addSubview(uranus)
+mainScroll.addSubview(uranus)
 uranus.alpha = 0.0
 uranus.layoutIfNeeded()
 
-mainSpace.addSubview(neptune)
+mainScroll.addSubview(neptune)
 neptune.alpha = 0.0
 neptune.layoutIfNeeded()
 
-mainSpace.addSubview(pluto)
+mainScroll.addSubview(pluto)
 pluto.alpha = 0.0
 pluto.layoutIfNeeded()
 
-mainSpace.addSubview(alertMessage)
-alertMessage.alpha = 0.0
-
-mainSpace.addSubview(alertText)
-alertText.alpha = 0.0
-
-mainSpace.addSubview(clearButton)
-clearButton.alpha = 0.0
-
-public func clearAction(sender: UIButton) {
-    
-    UIView.animate(withDuration: 5.0, animations: {
-        
-        alertText.alpha = 0.0
-        clearButton.alpha = 0.0
-        
-    }, completion: {finished in
-        
-        startLaunch()
-        
-    })
-    
-}
-
 public func startLaunch() {
     
-    mainSpace.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 5.3)
+    mainScroll.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 5.3)
     
-    mainSpace.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 5.8)
+    mainScroll.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 5.8)
     
-    mainSpace.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 6.3)
+    mainScroll.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 6.3)
     
-    mainSpace.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 6.8)
+    mainScroll.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 6.8)
     
-    mainSpace.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 7.3)
+    mainScroll.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 7.3)
     
-    mainSpace.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 7.8)
+    mainScroll.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 7.8)
     
-    mainSpace.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 8.3)
+    mainScroll.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 8.3)
     
-    mainSpace.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 8.8)
+    mainScroll.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 8.8)
     
-    mainSpace.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 9.0)
+    mainScroll.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 9.0)
     
     mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5, delay: 2.0)
     venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0, delay: 2.0)
@@ -184,31 +151,15 @@ public func startLaunch() {
     
 }
 
-UIView.animate(withDuration: 1.0, delay: 6.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
-  
-    alertMessage.alpha = 1.0
-    
-}, completion: { finished in
-    
-    UIView.animate(withDuration: 1.0, delay: 3.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
-    
-        alertMessage.alpha = 0.0
-        
-            }, completion: {finished in
-        
-                    UIView.animate(withDuration: 1.0, delay: 2.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
-                        
-                        alertText.alpha = 1.0
-                    
-                    }, completion: {finished in
-                    
-                        UIView.animate(withDuration: 1.0, delay: 2.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
-                        
-                        clearButton.alpha = 1.0
-                            
-                        }, completion: nil)
-                })
-        }) //end of animation two
-    
-}) //end of animation one
+func doubleTapped() {
+    print("tap registered")
+}
 
+startLaunch()
+
+let tap = UITapGestureRecognizer(target: mainSpace, action: Selector("doubleTapped:"))
+tap.numberOfTapsRequired = 1
+mainSpace.addGestureRecognizer(tap)
+
+
+PlaygroundPage.current.liveView = mainSpace
