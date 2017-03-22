@@ -65,5 +65,25 @@ public func startLaunch() {
 
 startLaunch()
 
+mainSpace.addGesture()
 
 PlaygroundPage.current.liveView = mainSpace
+
+extension UIImageView {
+
+
+    public func stopAnimation() {
+        
+        mainSpace.stopRotation(view: mercury)
+        mainSpace.stopRotation(view: venus)
+        mainSpace.stopRotation(view: earth)
+        mainSpace.stopRotation(view: mars)
+        mainSpace.stopRotation(view: jupiter)
+        mainSpace.stopRotation(view: saturn)
+        mainSpace.stopRotation(view: uranus)
+        mainSpace.stopRotation(view: neptune)
+        mainSpace.stopRotation(view: pluto)
+        
+    }
+
+}

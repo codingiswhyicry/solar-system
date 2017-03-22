@@ -1,24 +1,6 @@
 import Foundation
 import UIKit
 
-public class imageView: UIImageView {
-    
-    func doubleTapped() {
-        print("tap registered")
-        
-        
-    }
-    
-    open func addGesture() {
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        tap.numberOfTapsRequired = 2
-        
-        self.addGestureRecognizer(tap)
-    }
-    
-}
-
 extension UIImageView {
 
     open func rotation(view: UIImageView) {
@@ -32,7 +14,7 @@ extension UIImageView {
     
     open func stopRotation(view: UIImageView) {
     
-        view.layer.removeAnimation(forKey: "animationSpin")
+        view.layer.removeAllAnimations()
     }
     
     open func orbit(view: UIImageView, center: UIView, radius: Float, time: Float, delay: Double) {

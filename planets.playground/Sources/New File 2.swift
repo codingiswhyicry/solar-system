@@ -3,6 +3,21 @@ import UIKit
 
 public class main_space: UIImageView {
 
+    func doubleTapped() {
+        
+        print("tap registered")
+        
+    }
+    
+    open func addGesture() {
+        
+        print("gesture recognized")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        
+        self.addGestureRecognizer(tap)
+    }
+    
     public init() {
         
         super.init(frame:  CGRect(x: 0, y: 0, width: 1200, height: 900))
