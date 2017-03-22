@@ -5,12 +5,14 @@ public class imageView: UIImageView {
     
     func doubleTapped() {
         print("tap registered")
+        
+        
     }
     
     open func addGesture() {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
-        tap.numberOfTapsRequired = 1
+        tap.numberOfTapsRequired = 2
         
         self.addGestureRecognizer(tap)
     }
