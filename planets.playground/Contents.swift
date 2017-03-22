@@ -3,7 +3,8 @@
 import UIKit
 import PlaygroundSupport
 
-var mainSpace = UIImageView(frame: CGRect(x: 0, y: 0, width: 1200, height: 900))
+var mainSpace = imageView()
+mainSpace.frame = CGRect(x: 0, y: 0, width: 1200, height: 900)
 mainSpace.image = UIImage(named: "spaceBackground.jpg")
 mainSpace.contentMode =  UIViewContentMode.scaleAspectFill
 
@@ -104,6 +105,11 @@ jupiter.layoutIfNeeded()
 mainScroll.addSubview(saturn)
 saturn.alpha = 0.0
 saturn.layoutIfNeeded()
+saturn.layer.shadowColor = UIColor.darkGray.cgColor
+saturn.layer.shadowOpacity = 1.0
+saturn.layer.shadowOffset = CGSize.zero
+saturn.layer.shadowRadius = 30
+
 
 mainScroll.addSubview(uranus)
 uranus.alpha = 0.0
@@ -119,24 +125,6 @@ pluto.layoutIfNeeded()
 
 public func startLaunch() {
     
-    mainScroll.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 5.3)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 5.8)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 6.3)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 6.8)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 7.3)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 7.8)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 8.3)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 8.8)
-    
-    mainScroll.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 9.0)
-    
     mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5, delay: 2.0)
     venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0, delay: 2.0)
     earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5, delay: 2.0)
@@ -149,17 +137,28 @@ public func startLaunch() {
     
     mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
     
+    mainScroll.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 12.0)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 12.2)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 12.4)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 12.6)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 12.8)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 13.0)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 13.2)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 13.4)
+    
+    mainScroll.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 13.6)
+    
 }
 
-func doubleTapped() {
-    print("tap registered")
-}
-
+mainSpace.addGesture()
 startLaunch()
-
-let tap = UITapGestureRecognizer(target: mainSpace, action: Selector("doubleTapped:"))
-tap.numberOfTapsRequired = 1
-mainSpace.addGestureRecognizer(tap)
 
 
 PlaygroundPage.current.liveView = mainSpace
