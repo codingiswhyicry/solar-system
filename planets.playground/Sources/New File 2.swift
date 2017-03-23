@@ -107,7 +107,7 @@ public class Earth: UIImageView {
 
     public init() {
     
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 124, width: 17.5 , height: 17.5))
         
         self.image = UIImage(named: "moonAndEarth.png")
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -128,7 +128,7 @@ public class Mars: UIImageView {
     
     public init() {
         
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 143, width: 6, height: 6))
         
         self.image = UIImage(named: "mars.gif")
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -147,7 +147,7 @@ public class Jupiter: UIImageView {
 
     public init() {
         
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 212, width: 40, height: 40))
         
         self.image = UIImage(named: "finalJupDraft.png")
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -167,17 +167,13 @@ public class Saturn: UIImageView {
 
     public init() {
         
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 256, width: 35, height: 35))
         
-        self.image = UIImage(named: "selfDraftTop.png")
+        self.image = UIImage(named: "saturnDraftTop.png")
         self.contentMode = UIViewContentMode.scaleAspectFill
         self.center.x = 600
         self.alpha = 0.0
         self.layoutIfNeeded()
-        self.layer.shadowColor = UIColor.darkGray.cgColor
-        self.layer.shadowOpacity = 1.0
-        self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowRadius = 30
         
     }
     
@@ -192,7 +188,7 @@ public class Uranus: UIImageView {
 
     public init() {
         
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 275, width: 10, height: 10))
         
         self.image = UIImage(named: "uranus.gif")
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -212,7 +208,7 @@ public class Neptune: UIImageView {
     
     public init() {
         
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 306, width: 12.5, height: 12.5))
         
         self.image = UIImage(named: "neptune.gif")
         self.contentMode = UIViewContentMode.scaleAspectFill
@@ -232,7 +228,7 @@ public class Pluto: UIImageView {
     
     public init() {
         
-        super.init(frame: CGRect(x: 450, y: 600 - 94, width: 8.5, height: 8.5))
+        super.init(frame: CGRect(x: 450, y: 600 - 327, width: 5, height: 5  ))
         
         self.image = UIImage(named: "pluto.gif")
         self.contentMode = UIViewContentMode.scaleAspectFill

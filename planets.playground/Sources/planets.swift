@@ -54,15 +54,31 @@ public class Planets: UIView {
         
         print("tap registered")
         
-        mainSpace.stop_orbit(view: mercury, center: mainSpace, radius: 65.0, duration: 0.5)
-        mainSpace.stop_orbit(view: venus, center: mainSpace, radius: 90.0, duration: 1.0)
-        mainSpace.stop_orbit(view: earth, center: mainSpace, radius: 115.0, duration: 1.5)
-        mainSpace.stop_orbit(view: mars, center: mainSpace, radius: 140.0, duration: 2.0)
-        mainSpace.stop_orbit(view: jupiter, center: mainSpace, radius: 190.0, duration: 2.5)
-        mainSpace.stop_orbit(view: saturn, center: mainSpace, radius: 240.0, duration: 3.0)
-        mainSpace.stop_orbit(view: uranus, center: mainSpace, radius: 270.0, duration: 3.5)
-        mainSpace.stop_orbit(view: neptune, center: mainSpace, radius: 300.0, duration: 4.0)
-        mainSpace.stop_orbit(view: pluto, center: mainSpace, radius: 325.0, duration: 4.5)
+        if (mercury.layer.animationKeys() == nil) {
+            
+            mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5, delay: 2.0)
+            venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0, delay: 2.0)
+            earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5, delay: 2.0)
+            mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0, delay: 2.0)
+            jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 2.5, delay: 2.0)
+            saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0, delay: 2.0)
+            uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5, delay: 2.0)
+            neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0, delay: 2.0)
+            pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5, delay: 2.0)
+        
+        } else if (mercury.layer.animationKeys() != nil) {
+        
+            mainSpace.stop_orbit(view: mercury, center: mainSpace, radius: 65.0, duration: 0.5)
+            mainSpace.stop_orbit(view: venus, center: mainSpace, radius: 90.0, duration: 1.0)
+            mainSpace.stop_orbit(view: earth, center: mainSpace, radius: 115.0, duration: 1.5)
+            mainSpace.stop_orbit(view: mars, center: mainSpace, radius: 140.0, duration: 2.0)
+            mainSpace.stop_orbit(view: jupiter, center: mainSpace, radius: 190.0, duration: 2.5)
+            mainSpace.stop_orbit(view: saturn, center: mainSpace, radius: 240.0, duration: 3.0)
+            mainSpace.stop_orbit(view: uranus, center: mainSpace, radius: 270.0, duration: 3.5)
+            mainSpace.stop_orbit(view: neptune, center: mainSpace, radius: 300.0, duration: 4.0)
+            mainSpace.stop_orbit(view: pluto, center: mainSpace, radius: 325.0, duration: 4.5)
+        
+        }
         
         print("changed the orbit!")
     }

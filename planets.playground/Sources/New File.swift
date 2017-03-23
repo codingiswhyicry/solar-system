@@ -36,13 +36,25 @@ extension UIImageView {
     
     open func stop_orbit(view: UIImageView, center: UIView, radius: Float, duration: Float) {
         
-        let orbit = CAKeyframeAnimation()
-        orbit.value(forKey: "orbit")
-        orbit.value(forKeyPath: "position")
-        orbit.duration = 1.0
+       /* let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
+        
+        let orbit = CAKeyframeAnimation(keyPath: "position")
+        orbit.path = myPath
+        orbit.beginTime = CACurrentMediaTime()
+        orbit.rotationMode = kCAAnimationRotateAuto
+        orbit.fillMode = kCAFillModeForwards
         orbit.repeatCount = 1
+        orbit.duration = CFTimeInterval(duration)
+        orbit.isRemovedOnCompletion = false
         view.layer.removeAnimation(forKey: "orbit")
-        view.layer.add(orbit, forKey: "orbit")
+        view.layer.add(orbit, forKey: "orbit2")
+        view.layoutIfNeeded()
+        view.layer.setNeedsLayout()*/
+        
+        view.layer.timeOffset = layer.convertTime(CACurrentMediaTime(), from: nil)
+        view.layer.speed = 0.0
+        view.layer.removeAllAnimations()
+    
     }
     
     open func create_circle(view: UIView, radius: Float, time: Double, delay: Double) {
