@@ -34,9 +34,15 @@ extension UIImageView {
         
     }
     
-    open func stop_orbit(view: UIImageView) {
-    
+    open func stop_orbit(view: UIImageView, center: UIView, radius: Float, duration: Float) {
+        
+        let orbit = CAKeyframeAnimation()
+        orbit.value(forKey: "orbit")
+        orbit.value(forKeyPath: "position")
+        orbit.duration = 1.0
+        orbit.repeatCount = 1
         view.layer.removeAnimation(forKey: "orbit")
+        view.layer.add(orbit, forKey: "orbit")
     }
     
     open func create_circle(view: UIView, radius: Float, time: Double, delay: Double) {
