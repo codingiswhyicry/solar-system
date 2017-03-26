@@ -8,7 +8,6 @@ public var planets = Planets()
 
 playgroundView.addSubview(planets)
 
-
 planets.startLaunch()
 planets.addGesture()
 

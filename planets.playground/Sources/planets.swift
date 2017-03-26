@@ -18,16 +18,15 @@ public class Planets: UIView {
     
     public func startLaunch() {
         
-    /*  mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.5, delay: 2.0)
-      venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 1.0, delay: 2.0)
-      earth.orbit(view: earth, center: mainSpace, radius: 115, time: 1.5, delay: 2.0)
-      mars.orbit(view: mars, center: mainSpace, radius: 140, time: 2.0, delay: 2.0)
-      jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 2.5, delay: 2.0)
-      saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 3.0, delay: 2.0)
-      uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 3.5, delay: 2.0)
-      neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 4.0, delay: 2.0)
-      pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 4.5, delay: 2.0)
-   */     
+      mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.27, delay: 2.0)
+      venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 0.24, delay: 2.0)
+      earth.orbit(view: earth, center: mainSpace, radius: 115, time: 0.21, delay: 2.0)
+      mars.orbit(view: mars, center: mainSpace, radius: 140, time: 0.18, delay: 2.0)
+      jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 0.15, delay: 2.0)
+      saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 0.12, delay: 2.0)
+      uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 0.09, delay: 2.0)
+      neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 0.06, delay: 2.0)
+      pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 0.03, delay: 2.0)
         mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
         
         mainScroll.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 12.0)
@@ -54,32 +53,32 @@ public class Planets: UIView {
         
         print("tap registered")
         
-        if mercury.layer.speed == 0 {
+        if mercury.layer.speed != 0.0 {
         
-            mercury.resume_orbit(view: mercury, duration: 0.5) ; mercury.layer.layoutIfNeeded()
-            venus.resume_orbit(view: venus, duration: 1.0) ; venus.layer.layoutIfNeeded()
-            earth.resume_orbit(view: earth, duration: 1.5) ; earth.layer.layoutIfNeeded()
-            mars.resume_orbit(view: mars, duration: 2.0) ; mars.layer.layoutIfNeeded()
-            jupiter.resume_orbit(view: jupiter, duration: 2.5) ; jupiter.layer.layoutIfNeeded()
-            saturn.resume_orbit(view: saturn, duration: 3.0) ; saturn.layer.layoutIfNeeded()
-            uranus.resume_orbit(view: uranus, duration: 3.5) ; uranus.layer.layoutIfNeeded()
-            neptune.resume_orbit(view: neptune, duration: 4.0) ; neptune.layer.layoutIfNeeded()
-            pluto.resume_orbit(view: pluto, duration: 4.5) ; pluto.layer.layoutIfNeeded()
-        
+            mainSpace.stop_orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.35)
+            mainSpace.stop_orbit(view: venus, center: mainSpace, radius: 90.0, time: 0.24)
+            mainSpace.stop_orbit(view: earth, center: mainSpace, radius: 115, time: 0.21)
+            mainSpace.stop_orbit(view: mars, center: mainSpace, radius: 140, time: 0.18)
+            mainSpace.stop_orbit(view: jupiter, center: mainSpace, radius: 190, time: 0.15)
+            mainSpace.stop_orbit(view: saturn, center: mainSpace, radius: 240, time: 0.12)
+            mainSpace.stop_orbit(view: uranus, center: mainSpace, radius: 270, time: 0.09)
+            mainSpace.stop_orbit(view: neptune, center: mainSpace, radius: 300, time: 0.06)
+            mainSpace.stop_orbit(view: pluto, center: mainSpace, radius: 325, time: 0.03)
+            
         }
         
-        else if mercury.layer.speed != 0 {
-        
-       /*     mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            mainSpace.stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float)
-            */
+        if mercury.layer.speed == 0.0 {
+            
+            mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.27, delay: 2.0)
+            venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 0.24, delay: 2.0)
+            earth.orbit(view: earth, center: mainSpace, radius: 115, time: 0.21, delay: 2.0)
+            mars.orbit(view: mars, center: mainSpace, radius: 140, time: 0.18, delay: 2.0)
+            jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 0.15, delay: 2.0)
+            saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 0.12, delay: 2.0)
+            uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 0.09, delay: 2.0)
+            neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 0.06, delay: 2.0)
+            pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 0.03, delay: 2.0)
+            
         }
         
         print("changed the orbit!")

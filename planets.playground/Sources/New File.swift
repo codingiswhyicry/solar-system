@@ -17,8 +17,10 @@ extension UIImageView {
         view.layer.removeAllAnimations()
     }
     
+    // CGFloat(M_PI_2) , CGFloat(2*M_PI + M_PI_2)
+    
     open func orbit(view: UIImageView, center: UIView, radius: Float, time: Float, delay: Double) {
-        let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
+        let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: CGFloat(M_PI_2), endAngle: CGFloat(2 * M_PI + M_PI_2), clockwise: true).cgPath.self
         
         let orbit = CAKeyframeAnimation(keyPath: "position")
         orbit.path = myPath
@@ -26,7 +28,7 @@ extension UIImageView {
         orbit.rotationMode = kCAAnimationRotateAuto
         orbit.fillMode = kCAFillModeForwards
         orbit.repeatCount = Float.infinity
-        orbit.duration = CFTimeInterval(time)
+        orbit.speed = time
         orbit.isRemovedOnCompletion = false
         view.layer.add(orbit, forKey: "orbit")
         view.layoutIfNeeded()
@@ -35,32 +37,9 @@ extension UIImageView {
     }
     
     open func stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float) {
+
+    view.layer.removeAnimation(forKey: "orbit")
         
-        let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
-        
-        let orbit = CAKeyframeAnimation(keyPath: "position")
-        orbit.path = myPath
-        orbit.rotationMode = kCAAnimationRotateAuto
-        orbit.fillMode = kCAFillModeForwards
-        orbit.repeatCount = 1
-        orbit.duration = CFTimeInterval(time)
-        orbit.isRemovedOnCompletion = false
-        view.layer.removeAllAnimations()
-        view.layer.add(orbit, forKey: "orbit2")
-        view.layoutIfNeeded()
-        view.layer.setNeedsLayout()
-    
-    }
-    
-    open func resume_orbit(view: UIImageView, duration: Float) {
-        
-        let pausedTime = layer.timeOffset
-        view.layer.duration = CFTimeInterval(duration)
-        view.layer.timeOffset = 0.0
-        view.layer.beginTime = 0.0
-        let timeSincePause = layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-        view.layer.beginTime = timeSincePause
-    
     }
     
     open func create_circle(view: UIView, radius: Float, time: Double, delay: Double) {
