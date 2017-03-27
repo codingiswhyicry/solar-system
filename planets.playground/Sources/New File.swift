@@ -17,10 +17,10 @@ extension UIImageView {
         view.layer.removeAllAnimations()
     }
     
-    // CGFloat(M_PI_2) , CGFloat(2*M_PI + M_PI_2)
+    //  CGFloat(M_PI_2) , CGFloat(2*M_PI + M_PI_2)
     
     open func orbit(view: UIImageView, center: UIView, radius: Float, time: Float, delay: Double) {
-        let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: CGFloat(M_PI_2), endAngle: CGFloat(2 * M_PI + M_PI_2), clockwise: true).cgPath.self
+        let myPath = UIBezierPath(arcCenter: center.center , radius: CGFloat(radius), startAngle: CGFloat(M_PI_2), endAngle: CGFloat(M_PI_2 + M_PI*2), clockwise: true).cgPath.self
         
         let orbit = CAKeyframeAnimation(keyPath: "position")
         orbit.path = myPath
@@ -38,7 +38,11 @@ extension UIImageView {
     
     open func stop_orbit(view: UIImageView, center: UIView, radius: Float, time: Float) {
 
-    view.layer.removeAnimation(forKey: "orbit")
+        let speedAnimation = CABasicAnimation()
+        speedAnimation.fromValue = view.layer.speed = time
+        speedAnimation.toValue = view.layer.speed = 0.0
+        speedAnimation.duration = 2.0
+        view.layer.add(speedAnimation, forKey: "stop")
         
     }
     
@@ -54,7 +58,7 @@ extension UIImageView {
         shapeLayer.opacity = 0.0
         view.layer.insertSublayer(shapeLayer, at: 0)
         
-        let animation : CABasicAnimation = CABasicAnimation(keyPath: "opacity");
+        let animation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
         animation.beginTime = CACurrentMediaTime() + delay
         animation.fromValue = 0
         animation.toValue = 1
@@ -64,10 +68,11 @@ extension UIImageView {
         shapeLayer.add(animation, forKey: nil)
         
     }
+
     
     open func animate_planets(sun: UIImageView, mercury: UIImageView, venus: UIImageView, earth: UIImageView, mars: UIImageView, jupiter: UIImageView, saturn: UIImageView, uranus: UIImageView, neptune: UIImageView, pluto: UIImageView) {
         
-        UIView.animate(withDuration: 0.5, delay: 1.5, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.5, delay: 3, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
             sun.alpha = 1.0
             

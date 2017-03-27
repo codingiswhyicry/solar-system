@@ -18,41 +18,40 @@ public class Planets: UIView {
     
     public func startLaunch() {
         
-      mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.27, delay: 2.0)
-      venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 0.24, delay: 2.0)
-      earth.orbit(view: earth, center: mainSpace, radius: 115, time: 0.21, delay: 2.0)
-      mars.orbit(view: mars, center: mainSpace, radius: 140, time: 0.18, delay: 2.0)
-      jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 0.15, delay: 2.0)
-      saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 0.12, delay: 2.0)
-      uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 0.09, delay: 2.0)
-      neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 0.06, delay: 2.0)
-      pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 0.03, delay: 2.0)
         mainSpace.animate_planets(sun: sun, mercury: mercury, venus: venus, earth: earth, mars: mars, jupiter: jupiter, saturn: saturn, uranus: uranus, neptune: neptune, pluto: pluto)
         
-        mainScroll.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 12.0)
+        mainScroll.create_circle(view: mainSpace, radius: 65.0, time: 0.5, delay: 11.0)
         
-        mainScroll.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 12.2)
+        mainScroll.create_circle(view: mainSpace, radius: 90.0, time: 0.5, delay: 11.2)
         
-        mainScroll.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 12.4)
+        mainScroll.create_circle(view: mainSpace, radius: 115.0, time: 0.5, delay: 11.4)
         
-        mainScroll.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 12.6)
+        mainScroll.create_circle(view: mainSpace, radius: 140.0, time: 0.5, delay: 11.6)
         
-        mainScroll.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 12.8)
+        mainScroll.create_circle(view: mainSpace, radius: 190.0, time: 0.5, delay: 11.8)
         
-        mainScroll.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 13.0)
+        mainScroll.create_circle(view: mainSpace, radius: 240.0, time: 0.5, delay: 12.0)
         
-        mainScroll.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 13.2)
+        mainScroll.create_circle(view: mainSpace, radius: 270.0, time: 0.5, delay: 12.2)
         
-        mainScroll.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 13.4)
+        mainScroll.create_circle(view: mainSpace, radius: 300.0, time: 0.5, delay: 12.4)
         
-        mainScroll.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 13.6)
+        mainScroll.create_circle(view: mainSpace, radius: 325.0, time: 0.5, delay: 12.6)
+    
+        mercury.orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.27, delay: 13.0)
+        venus.orbit(view: venus, center: mainSpace, radius: 90.0, time: 0.24, delay: 13.0)
+        earth.orbit(view: earth, center: mainSpace, radius: 115, time: 0.21, delay: 13.0)
+        mars.orbit(view: mars, center: mainSpace, radius: 140, time: 0.18, delay: 13.0)
+        jupiter.orbit(view: jupiter, center: mainSpace, radius: 190, time: 0.15, delay: 13.0)
+        saturn.orbit(view: saturn, center: mainSpace, radius: 240, time: 0.12, delay: 13.0)
+        uranus.orbit(view: uranus, center: mainSpace, radius: 270, time: 0.09, delay: 13.0)
+        neptune.orbit(view: neptune, center: mainSpace, radius: 300, time: 0.06, delay: 13.0)
+        pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 0.03, delay: 13.0)
         
     }
     
     func doubleTapped() {
-        
-        print("tap registered")
-        
+
         if mercury.layer.speed != 0.0 {
         
             mainSpace.stop_orbit(view: mercury, center: mainSpace, radius: 65.0, time: 0.35)
@@ -80,8 +79,6 @@ public class Planets: UIView {
             pluto.orbit(view: pluto, center: mainSpace, radius: 325, time: 0.03, delay: 2.0)
             
         }
-        
-        print("changed the orbit!")
     }
     
     open func addGesture() {
