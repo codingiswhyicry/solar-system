@@ -72,61 +72,61 @@ extension UIImageView {
     
     open func animate_planets(sun: UIImageView, mercury: UIImageView, venus: UIImageView, earth: UIImageView, mars: UIImageView, jupiter: UIImageView, saturn: UIImageView, uranus: UIImageView, neptune: UIImageView, pluto: UIImageView) {
         
-        UIView.animate(withDuration: 0.5, delay: 3, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.4, delay: 3, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
             sun.alpha = 1.0
             
         }, completion: {finished in
             
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.4, animations: {
                 
                 mercury.alpha = 1.0
                 
             }, completion: {finished in
                 
-                UIView.animate(withDuration: 0.5, animations: {
+                UIView.animate(withDuration: 0.4, animations: {
                     
                     venus.alpha = 1.0
                     
                 }, completion: {finished in
                     
-                    UIView.animate(withDuration: 0.5, animations: {
+                    UIView.animate(withDuration: 0.4, animations: {
                         
                         earth.alpha = 1.0
                         
                     }, completion: {finished in
                         
-                        UIView.animate(withDuration: 0.5, animations: {
+                        UIView.animate(withDuration: 0.4, animations: {
                             
                             mars.alpha = 1.0
                             
                         }, completion: {finished in
                             
-                            UIView.animate(withDuration: 0.5, animations: {
+                            UIView.animate(withDuration: 0.4, animations: {
                                 
                                 jupiter.alpha = 1.0
                                 
                             }, completion: {finished in
                                 
-                                UIView.animate(withDuration: 0.5, animations: {
+                                UIView.animate(withDuration: 0.4, animations: {
                                     
                                     saturn.alpha = 1.0
                                     
                                 }, completion: {finished in
                                     
-                                    UIView.animate(withDuration: 0.5, animations: {
+                                    UIView.animate(withDuration: 0.4, animations: {
                                         
                                         uranus.alpha = 1.0
                                         
                                     }, completion: {finished in
                                         
-                                        UIView.animate(withDuration: 0.5, animations: {
+                                        UIView.animate(withDuration: 0.4, animations: {
                                             
                                             neptune.alpha = 1.0
                                             
                                         }, completion: {finished in
                                             
-                                            UIView.animate(withDuration: 0.5, animations: {
+                                            UIView.animate(withDuration: 0.4, animations: {
                                                 
                                                 pluto.alpha = 1.0
                                                 
