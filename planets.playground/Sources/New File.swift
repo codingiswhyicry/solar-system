@@ -3,8 +3,9 @@ import UIKit
 
 extension UIImageView {
 
-    open func rotation(view: UIImageView) {
+    open func rotation(view: UIImageView, delay: Double) {
         let spin_animate = CABasicAnimation(keyPath: "transform.rotation")
+        spin_animate.beginTime = CACurrentMediaTime() + delay
         spin_animate.duration = 1
         spin_animate.repeatCount = Float.infinity
         spin_animate.fromValue = 0.0

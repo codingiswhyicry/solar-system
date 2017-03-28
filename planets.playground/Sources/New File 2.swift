@@ -51,7 +51,7 @@ public class Sun: UIImageView {
         self.center.y = 450
         self.center.x = 600
         self.alpha = 0.0
-        self.rotation(view: self)
+        self.rotation(view: self, delay: 12.0)
         self.layer.shadowColor = UIColor.orange.cgColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize.zero
@@ -113,7 +113,7 @@ public class Earth: UIImageView {
         self.contentMode = UIViewContentMode.scaleAspectFill
         self.center.x = 600
         self.alpha = 0.0
-        self.rotation(view: self)
+        self.rotation(view: self, delay: 12.5)
         self.layoutIfNeeded()
     }
     
