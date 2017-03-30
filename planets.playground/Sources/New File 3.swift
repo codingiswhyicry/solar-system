@@ -38,11 +38,11 @@ public class star_two: UIImageView {
     
     public init() {
         
-        super.init(frame: CGRect(x: 300, y: 1500, width: 800, height: 800))
+        super.init(frame: CGRect(x: 300, y: 1500, width: 1200, height: 1200))
         
         self.center.y = 450
         self.center.x = 600
-        self.image = UIImage(named: "constellations.png")
+        self.image = UIImage(named: "finalconstel.png")
         self.contentMode = UIViewContentMode.scaleAspectFill
         self.alpha = 0.0
         self.layoutIfNeeded()

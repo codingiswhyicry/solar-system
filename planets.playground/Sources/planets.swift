@@ -55,13 +55,13 @@ public class Planets: UIView {
         
        UIView.animate(withDuration: 3.0, delay: 13.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
         
-            self.starOne.alpha = 1.0
+            self.starOne.alpha = 0.4
             
             }, completion: {finished in
         
                 UIView.animate(withDuration: 3.5, animations: {
             
-                    self.starTwo.alpha = 0.3
+                    self.starTwo.alpha = 0.7
             
                 }, completion: nil)
         
