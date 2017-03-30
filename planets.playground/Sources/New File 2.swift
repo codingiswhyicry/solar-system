@@ -6,9 +6,9 @@ public class main_space: UIImageView {
     public init() {
         
         super.init(frame:  CGRect(x: 0, y: 0, width: 1200, height: 900))
-
+        
         self.image = UIImage(named: "spaceBackground.jpg")
-        self.contentMode =  UIViewContentMode.scaleAspectFill
+        self.backgroundColor = UIColor.black
         self.isUserInteractionEnabled = true
     }
     
@@ -55,7 +55,7 @@ public class Sun: UIImageView {
         self.layer.shadowColor = UIColor.orange.cgColor
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowRadius = 15
+        self.layer.shadowRadius = 70
         self.isUserInteractionEnabled = true
 
     }
@@ -244,6 +244,25 @@ public class Pluto: UIImageView {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+
+}
+
+public class label_line: UIView {
+
+
+    public init() {
+        
+        super.init(frame: CGRect(x: 450, y: 450 + 398, width: 300, height: 1))
+        self.backgroundColor = UIColor.white
+        self.alpha = 1.0
+        self.layoutIfNeeded()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
 
 }

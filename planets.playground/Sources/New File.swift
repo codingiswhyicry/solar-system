@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-extension UIImageView {
+extension UIView {
 
     open func rotation(view: UIImageView, delay: Double) {
         let spin_animate = CABasicAnimation(keyPath: "transform.rotation")
@@ -144,29 +144,3 @@ extension UIImageView {
    }
 }
 
-extension UIScrollView {
-
-    open func create_circle(view: UIView, radius: Float, time: Double, delay: Double) {
-        
-        let myPath = UIBezierPath(arcCenter: view.center , radius: CGFloat(radius), startAngle: 0, endAngle:  CGFloat(2 * M_PI), clockwise: true).cgPath.self
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = myPath
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = UIColor.white.cgColor //UIColor(red:0.73, green:0.74, blue:0.76, alpha:1.0).cgColor
-        shapeLayer.lineWidth = 0.2
-        shapeLayer.opacity = 0.0
-        view.layer.insertSublayer(shapeLayer, at: 0)
-        
-        let animation : CABasicAnimation = CABasicAnimation(keyPath: "opacity");
-        animation.beginTime = CACurrentMediaTime() + delay
-        animation.fromValue = 0
-        animation.toValue = 1
-        animation.fillMode = kCAFillModeForwards
-        animation.duration = CFTimeInterval(time)
-        animation.isRemovedOnCompletion = false
-        shapeLayer.add(animation, forKey: nil)
-        
-    }
-
-}

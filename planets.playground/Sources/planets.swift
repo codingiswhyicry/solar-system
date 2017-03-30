@@ -15,7 +15,11 @@ public class Planets: UIView {
     public var uranus = Uranus()
     public var neptune = Neptune()
     public var pluto = Pluto()
-    //public var stars = starry_sky()
+    public var starOne = star_one()
+    public var starTwo = star_two()
+    public var starThree = star_three()
+    public var starFour = star_four()
+    
     
     public func startLaunch() {
         
@@ -49,11 +53,25 @@ public class Planets: UIView {
         neptune.orbit(view: neptune, center: mainSpace, radius: 340, time: 0.06, delay: 13.0)
         pluto.orbit(view: pluto, center: mainSpace, radius: 400, time: 0.03, delay: 13.0)
         
-    }
+       UIView.animate(withDuration: 3.0, delay: 13.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+        
+            self.starOne.alpha = 1.0
+            
+            }, completion: {finished in
+        
+                UIView.animate(withDuration: 3.5, animations: {
+            
+                    self.starTwo.alpha = 0.3
+            
+                }, completion: nil)
+        
+            })
+        }
     
     public init() {
         
         super.init(frame:  CGRect(x: 0, y: 0, width: 1200, height: 900))
+
         
         self.addSubview(mainSpace)
         mainSpace.addSubview(mainScroll)
@@ -67,8 +85,8 @@ public class Planets: UIView {
         mainScroll.addSubview(uranus)
         mainScroll.addSubview(neptune)
         mainScroll.addSubview(pluto)
-      //  mainScroll.insertSubview(stars, at: 0)
-        
+        mainScroll.insertSubview(starOne, at: 0)
+        mainScroll.insertSubview(starTwo, at: 0)
     }
     
     required public init?(coder aDecoder: NSCoder) {
